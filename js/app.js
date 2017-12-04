@@ -36,6 +36,7 @@ function initMap() {
   }
 
   showListings();
+  showList();
 }
 
 
@@ -48,5 +49,12 @@ function showListings() {
     bounds.extend(markers[i].position);
   }
   map.fitBounds(bounds);
+}
+
+// This function will loop through the markers array and display them in the location list
+function showList() {
+  for (var i = 0; i < markers.length; i++) {
+    $('#list').append('<li id=' + markers[i].id + '>' + markers[i].title + '</li>');
+  }
 }
 
