@@ -1,60 +1,59 @@
 var map;
-
-// Create a new blank array for all the listing markers.
+// Create a blank array for holding map markers
 var markers = [];
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 32.948, lng: -117.30},
-    zoom: 9
-  });
+// Class to represent a surf spot
+function SurfSpot(title, location) {
+  var self = this;
+  self.title = title;
+  self.location = location;
+}
 
-  var locations = [
-    {title: 'Scrips Pier', location: {lat: 32.865518, lng: -117.254822}},
-    {title: 'Tourmaline', location: {lat: 32.805114, lng: -117.262321}},
-    {title: 'Ocean Beach', location: {lat: 32.747533, lng: -117.253625}},
-    {title: 'Mission Beach', location: {lat: 32.783391, lng: -117.254212}},
-    {title: 'Tamarack', location: {lat: 33.149097, lng: -117.348226}},
-    {title: 'Del Mar', location: {lat: 32.954466, lng: -117.267460}}
-  ];
+// Main viewmodel
+function AppViewModel() {
+  var self = this;
 
+  // Editable data
+  self.surfSpot = ko.observableArray([
+    new SurfSpot('Scrips Pier', {lat: 32.865518, lng: -117.254822}),
+    new SurfSpot('Tourmaline', {lat: 32.805114, lng: -117.262321}),
+    new SurfSpot('Ocean Beach', {lat: 32.747533, lng: -117.253625}),
+    new SurfSpot('Mission Beach', {lat: 32.783391, lng: -117.254212}),
+    new SurfSpot('Tamarack', {lat: 33.149097, lng: -117.348226}),
+    new SurfSpot('Del Mar', {lat: 32.954466, lng: -117.267460})
+  ]);
 
-  // The following group uses the location array to create an array of markers on initialize.
-  for (var i = 0; i < locations.length; i++) {
-    // Get the position from the location array.
-    var position = locations[i].location;
-    var title = locations[i].title;
-    // Create a marker per location, and put into markers array.
-    var marker = new google.maps.Marker({
-      position: position,
-      title: title,
-      animation: google.maps.Animation.DROP,
-      id: i
+  self.initMap = function() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 32.948, lng: -117.30},
+      zoom: 9
     });
-    // Push the marker to our array of markers.
-    markers.push(marker);
-  }
 
-  showListings();
-  showList();
+    // Create a map marker for each surf spot
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < self.surfSpot().length; i++) {
+      var marker = new google.maps.Marker({
+        position: self.surfSpot()[i]['location'],
+        title: self.surfSpot()[i]['title'],
+        animation: google.maps.Animation.DROP,
+        id: i
+      });
+      marker.setMap(map);
+      bounds.extend(marker.position);
+      markers.push(marker);
+    }
+    map.fitBounds(bounds);
+  };
+
+  self.initMap();
 }
 
-
-// This function will loop through the markers array and display them all.
-function showListings() {
-  var bounds = new google.maps.LatLngBounds();
-  // Extend the boundaries of the map for each marker and display the marker
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-    bounds.extend(markers[i].position);
-  }
-  map.fitBounds(bounds);
+// Error handlers
+function googleMapsError() {
+  alert("Google Maps cannot be loaded. Please check your connection and try again.")
 }
 
-// This function will loop through the markers array and display them in the location list
-function showList() {
-  for (var i = 0; i < markers.length; i++) {
-    $('#list').append('<li id=' + markers[i].id + '>' + markers[i].title + '</li>');
-  }
+// Function to enable initMap() to work with the Google Maps js callback
+function initApp() {
+  ko.applyBindings(new AppViewModel());
 }
-
