@@ -12,6 +12,14 @@ function SurfSpot(title, location) {
 // Main viewmodel
 function AppViewModel() {
   var self = this;
+  self.searchInput = ko.observable("");
+
+  self.search = function(value) {
+    console.log(value);
+  }
+
+  // Bind searchInput to search
+  self.searchInput.subscribe(self.search);
 
   // Editable data
   self.surfSpot = ko.observableArray([

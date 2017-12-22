@@ -11,7 +11,7 @@
   <div class="container">
     <div class="col-sm-12">
       <h1>Surf Spot Map</h1>
-      <input id="list-filter-text" type="text" placeholder="Surf spot">
+      <input data-bind="textInput: searchInput" id="list-filter-text" type="text" placeholder="Surf spot">
       <input id="list-filter-btn" type="button" value="Filter">
       <ul id="list" data-bind="foreach: surfSpot">
         <li data-bind="text: title"></li>
