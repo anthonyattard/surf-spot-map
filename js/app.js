@@ -23,7 +23,7 @@ function AppViewModel() {
 
   // Editable data
   self.surfSpots = [
-    new SurfSpot('Scrips Pier', {lat: 32.865518, lng: -117.254822}),
+    new SurfSpot('Scripps Pier', {lat: 32.865518, lng: -117.254822}),
     new SurfSpot('Tourmaline', {lat: 32.805114, lng: -117.262321}),
     new SurfSpot('Ocean Beach', {lat: 32.747533, lng: -117.253625}),
     new SurfSpot('Mission Beach', {lat: 32.783391, lng: -117.254212}),
