@@ -22,7 +22,7 @@ function AppViewModel() {
   self.searchInput.subscribe(self.search);
 
   // Editable data
-  self.surfSpot = ko.observableArray([
+  self.surfSpots = ko.observableArray([
     new SurfSpot('Scrips Pier', {lat: 32.865518, lng: -117.254822}),
     new SurfSpot('Tourmaline', {lat: 32.805114, lng: -117.262321}),
     new SurfSpot('Ocean Beach', {lat: 32.747533, lng: -117.253625}),
@@ -39,10 +39,10 @@ function AppViewModel() {
 
     // Create a map marker for each surf spot
     var bounds = new google.maps.LatLngBounds();
-    for (var i = 0; i < self.surfSpot().length; i++) {
+    for (var i = 0; i < self.surfSpots().length; i++) {
       var marker = new google.maps.Marker({
-        position: self.surfSpot()[i]['location'],
-        title: self.surfSpot()[i]['title'],
+        position: self.surfSpots()[i]['location'],
+        title: self.surfSpots()[i]['title'],
         animation: google.maps.Animation.DROP,
         id: i
       });
