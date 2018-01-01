@@ -26,6 +26,12 @@ function AppViewModel() {
 
   self.showItemInfo = function() {
     console.log(this.title);
+
+    var infoWindow = new google.maps.InfoWindow({
+      content: ''
+    });
+
+    infoWindow.open(map, this);
   }
 
   self.initMap = function() {
