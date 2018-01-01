@@ -24,6 +24,10 @@ function AppViewModel() {
     new SurfSpot('Del Mar', {lat: 32.954466, lng: -117.267460})
   ];
 
+  self.titleHandler = function(SurfSpot) {
+    console.log(SurfSpot.title + ' clicked');
+  }
+
   self.initMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 32.948, lng: -117.30},
