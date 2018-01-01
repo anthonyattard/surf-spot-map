@@ -14,13 +14,6 @@ function AppViewModel() {
   var self = this;
   self.searchInput = ko.observable("");
 
-  self.search = function(value) {
-    // console.log(value);
-  }
-
-  // Bind searchInput to search
-  self.searchInput.subscribe(self.search);
-
   // Editable data
   self.surfSpots = [
     new SurfSpot('Scripps Pier', {lat: 32.865518, lng: -117.254822}),
