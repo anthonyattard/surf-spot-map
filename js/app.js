@@ -15,7 +15,7 @@ function AppViewModel() {
   self.searchInput = ko.observable("");
 
   self.search = function(value) {
-    console.log(value);
+    // console.log(value);
   }
 
   // Bind searchInput to search
@@ -54,6 +54,23 @@ function AppViewModel() {
   };
 
   self.initMap();
+
+  // Appends the surf spots to the list
+  // It also enables filtering of both the list and markers
+  this.myLocationsFilter = ko.computed(function() {
+      var result = [];
+      for (var i = 0; i < markers.length; i++) {
+          var surfSpots = markers[i];
+          if (surfSpots.title.toLowerCase().includes(this.searchInput()
+                  .toLowerCase())) {
+              result.push(surfSpots);
+              markers[i].setVisible(true);
+          } else {
+              markers[i].setVisible(false);
+          }
+      }
+      return result;
+  }, this);
 }
 
 // Error handlers

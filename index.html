@@ -13,7 +13,7 @@
       <h1>Surf Spot Map</h1>
       <input data-bind="textInput: searchInput" id="list-filter-text" type="text" placeholder="Surf spot">
       <input id="list-filter-btn" type="button" value="Filter">
-      <ul id="list" data-bind="foreach: surfSpots">
+      <ul id="list" data-bind="foreach: myLocationsFilter">
         <li data-bind="text: title"></li>
       </ul>
     </div>
