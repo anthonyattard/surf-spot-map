@@ -12,6 +12,8 @@ function SurfSpot(title, location) {
 // Main viewmodel
 function AppViewModel() {
   var self = this;
+  // infoWindow is declared here so that only 1 can be open at a time
+  var infoWindow = new google.maps.InfoWindow();
   self.searchInput = ko.observable("");
 
   // Editable data
@@ -27,7 +29,7 @@ function AppViewModel() {
   self.showItemInfo = function() {
     console.log(this.title);
 
-    var infoWindow = new google.maps.InfoWindow({
+    infoWindow.setOptions({
       content: ''
     });
 
