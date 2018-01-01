@@ -28,6 +28,10 @@ function AppViewModel() {
     console.log(SurfSpot.title + ' clicked');
   }
 
+  self.showItemInfo = function() {
+    console.log(this.title);
+  }
+
   self.initMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 32.948, lng: -117.30},
@@ -46,6 +50,7 @@ function AppViewModel() {
       marker.setMap(map);
       bounds.extend(marker.position);
       markers.push(marker);
+      marker.addListener('click', self.showItemInfo);
     }
     map.fitBounds(bounds);
   };
