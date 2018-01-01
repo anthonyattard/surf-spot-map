@@ -24,8 +24,8 @@ function AppViewModel() {
     new SurfSpot('Del Mar', {lat: 32.954466, lng: -117.267460})
   ];
 
-  self.titleHandler = function(SurfSpot) {
-    console.log(SurfSpot.title + ' clicked');
+  self.titleHandler = function() {
+    console.log(this.title + ' clicked');
   }
 
   self.showItemInfo = function() {
