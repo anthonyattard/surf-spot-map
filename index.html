@@ -14,7 +14,7 @@
       <input data-bind="textInput: searchInput" id="list-filter-text" type="text" placeholder="Surf spot">
       <input id="list-filter-btn" type="button" value="Filter">
       <ul id="list" data-bind="foreach: myLocationsFilter">
-        <li data-bind="text: title, click: $parent.titleHandler"></li>
+        <li data-bind="text: title, click: $parent.showItemInfo"></li>
       </ul>
     </div>
   </div>
