@@ -30,7 +30,9 @@ function AppViewModel() {
     console.log(this.title);
 
     infoWindow.setOptions({
-      content: ''
+      content: '<div>' +
+               '<h5>' + this.title + '</h5>' +
+               '</div>'
     });
 
     infoWindow.open(map, this);
