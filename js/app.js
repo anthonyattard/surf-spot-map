@@ -79,10 +79,9 @@ function AppViewModel() {
           $('#rating').text(rating);
         })
 
-
       });
     }).fail(function(e){
-        alert('Failed to get Foursquare resources');
+        alert('Failed to get Foursquare resources. Please check your connection and try again.');
     });
   }
 
@@ -131,7 +130,7 @@ function AppViewModel() {
 
 // Error handlers
 function googleMapsError() {
-  alert("Google Maps cannot be loaded. Please check your connection and try again.")
+  alert("Google Maps could not be loaded. Please check your connection and try again.")
 }
 
 // Function to enable initMap() to work with the Google Maps js callback
