@@ -29,7 +29,7 @@ function AppViewModel() {
   self.showItemInfo = function() {
     // Set initial state of content
     content = '<div>';
-    content += '<h5>' + this.title + '</h5>';
+    content += '<h4>' + this.title + '</h4>';
 
     content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
