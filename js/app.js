@@ -81,7 +81,8 @@ function AppViewModel() {
 
         $.getJSON(fsDetailsUrl, function( data ) {
           rating = data.response.venue.rating;
-          $('#rating').text(rating);
+          ratingSignals = data.response.venue.ratingSignals;
+          $('#rating').text(rating + ' (' + ratingSignals + ' ratings)');
         })
 
       });
