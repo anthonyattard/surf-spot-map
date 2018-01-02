@@ -95,6 +95,7 @@ function AppViewModel() {
         alert('Failed to get Foursquare resources. Please check your connection and try again.');
     });
 
+    // Spitcast API
     var surfSearchUrl = 'http://api.spitcast.com/api/spot-forecast/search';
 
     surfSearchUrl += '?' + $.param({
