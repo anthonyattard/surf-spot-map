@@ -33,7 +33,6 @@ function AppViewModel() {
 
     content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
-    content += '<p>' + 'Venue ID: ' + '<span id="venueId"></span</p>'
     content += '<p>' + 'Wave Size: ' + '<span id="waveSize"></span></p>';
 
     // Closing div tag for the info window content
@@ -70,7 +69,6 @@ function AppViewModel() {
     // Promise used so that the 2nd api will not occur until the first is complete
     $.getJSON(fsSearchUrl, function( data ) {
       venueId = data.response.venues[0].id;
-      $('#venueId').text(venueId);
       sequence = sequence.then(function() {
         return venueId;
       }).then(function(venueId) {
