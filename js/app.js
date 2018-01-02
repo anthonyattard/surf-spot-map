@@ -27,15 +27,13 @@ function AppViewModel() {
   ];
 
   self.showItemInfo = function() {
-    console.log(this.title);
     // Set initial state of content
-    content = '<div>' +
-              '<h5>' + this.title + '</h5>';
+    content = '<div>';
+    content += '<h5>' + this.title + '</h5>';
 
     content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
     content += '<p>' + 'Venue ID: ' + '<span id="venueId"></span</p>'
-
 
     // Closing div tag for the info window content
     content += '</div>';
@@ -84,7 +82,7 @@ function AppViewModel() {
 
       });
     }).fail(function(e){
-        console.log('Failed to get Foursquare resources')
+        alert('Failed to get Foursquare resources');
     });
   }
 
