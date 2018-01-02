@@ -13,6 +13,7 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [KnockoutJS](http://knockoutjs.com/) - The javascript library used
+* [Google](https://developers.google.com/maps/) - Maps API
 * [Spitcast](http://www.spitcast.com/) - Surf Forecast API
 * [Foursquare](https://rometools.github.io/rome/) - Places API
 
