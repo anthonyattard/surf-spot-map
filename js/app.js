@@ -34,6 +34,7 @@ function AppViewModel() {
     content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
     content += '<p>' + 'Wave Size: ' + '<span id="waveSize"></span></p>';
+    content += '<img id="featured-image" src=""</img>'
 
     // Closing div tag for the info window content
     content += '</div>';
@@ -83,6 +84,9 @@ function AppViewModel() {
           venue = data.response.venue;
           rating = venue.rating;
           ratingSignals = venue.ratingSignals;
+          venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
+          $('#featured-image').attr('src', venuePhotoUrl);
+
           $('#rating').text(rating + ' (' + ratingSignals + ' ratings)');
         })
 
