@@ -34,7 +34,7 @@ function AppViewModel() {
     content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
     content += '<p>' + 'Wave Size: ' + '<span id="waveSize"></span></p>';
-    content += '<img id="featured-image" src=""</img>'
+    content += '<img id="featured-image" src=""</img>';
 
     // Closing div tag for the info window content
     content += '</div>';
@@ -162,7 +162,7 @@ function AppViewModel() {
 
 // Error handlers
 function googleMapsError() {
-  alert("Google Maps could not be loaded. Please check your connection and try again.")
+  alert("Google Maps could not be loaded. Please check your connection and try again.");
 }
 
 // Function to enable initMap() to work with the Google Maps js callback
