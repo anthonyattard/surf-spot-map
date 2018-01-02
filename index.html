@@ -8,17 +8,18 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="container">
-    <div class="col-sm-12">
+  <div class="container-full">
+    <div class="list-view">
       <h1>Surf Spot Map</h1>
       <input data-bind="textInput: searchInput" id="list-filter-text" type="text" placeholder="Surf spot">
       <input id="list-filter-btn" type="button" value="Filter">
-      <ul id="list" data-bind="foreach: myLocationsFilter">
+      <ul id="item-list" data-bind="foreach: myLocationsFilter">
         <li data-bind="text: title, click: $parent.showItemInfo"></li>
       </ul>
     </div>
+    <div id="map"></div>
   </div>
-  <div id="map"></div>
+  
 
   <script src="js/libs/jquery.min.js"></script>
   <script src="js/libs/bootstrap.min.js"></script>

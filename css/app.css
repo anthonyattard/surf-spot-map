@@ -1,14 +1,33 @@
-#map {
-  height: 100%;
-}
-
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-#list {
+.container-full {
+  height: 100%;
+  position: relative;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.list-view {
+  height: 100%;
+  line-height: 35px;
+  padding: 10px 10px 30px 10px;
+  text-align: left;
+  width: 340px;
+}
+
+#item-list {
   list-style-type: none;
   padding-left: 5px;
+}
+
+#map {
+  bottom:0px;
+  height: 100%;
+  left: 362px;
+  position: absolute;
+  right: 0px;
 }
