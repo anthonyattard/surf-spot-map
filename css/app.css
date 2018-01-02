@@ -50,3 +50,8 @@ html, body {
   color: #66FCF1;
   margin-bottom: 30px;
 }
+
+.attribution img{
+  vertical-align: bottom;
+  border: 0;
+}
