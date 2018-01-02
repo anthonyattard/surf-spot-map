@@ -45,6 +45,12 @@ function AppViewModel() {
 
     infoWindow.open(map, this);
 
+    // Map marker animations
+    this.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout((function() {
+        this.setAnimation(null);
+    }).bind(this), 1400);
+
     // Foursquare API
     var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search';
 
