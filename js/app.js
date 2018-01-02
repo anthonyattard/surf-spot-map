@@ -50,8 +50,8 @@ function AppViewModel() {
     var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search'
 
     fsSearchUrl += '?' + $.param({
-        'query': 'Tamarack',
-        'll': '33.149097,-117.348226',
+        'query': this.title,
+        'll': this.position.lat() + ',' + this.position.lng(),
         'intent': 'browse',
         'client_id': '0ZZXZ4MPQALNHP4SXKXUCQPTRBTIK1OBR2UC33RY25ROTTR5',
         'client_secret': 'OIJ0QU0XYVL2HWYUJNUOJMDOFFCMCDO30YK5B10SE3KRAHGZ',
@@ -65,19 +65,16 @@ function AppViewModel() {
     // Promise used so that the 2nd api will not occur until the first is complete
     $.getJSON(fsSearchUrl, function( data ) {
       venueId = data.response.venues[0].id;
-      console.log(venueId);
       $('#venueId').text(venueId);
       sequence = sequence.then(function() {
         return venueId;
       }).then(function(venueId) {
-        console.log(venueId);
         var fsDetailsUrl = 'https://api.foursquare.com/v2/venues/' + venueId;
         fsDetailsUrl += '?' + $.param({
             'client_id': '0ZZXZ4MPQALNHP4SXKXUCQPTRBTIK1OBR2UC33RY25ROTTR5',
             'client_secret': 'OIJ0QU0XYVL2HWYUJNUOJMDOFFCMCDO30YK5B10SE3KRAHGZ',
             'v': '20170801'
         });
-        console.log(fsDetailsUrl);
 
         $.getJSON(fsDetailsUrl, function( data ) {
           rating = data.response.venue.rating;
