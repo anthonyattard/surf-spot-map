@@ -33,6 +33,18 @@ function AppViewModel() {
               '<h5>' + this.title + '</h5>';
 
     content += '<p>' + 'Surf Spot Details' + '</p>';
+    content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
+    content += '<p>' + 'Venue ID: ' + '<span id="venueId"></span</p>'
+
+
+    // Closing div tag for the info window content
+    content += '</div>';
+
+    infoWindow.setOptions({
+      content: content
+    });
+
+    infoWindow.open(map, this);
 
     // Foursquare API
     var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search'
@@ -54,25 +66,29 @@ function AppViewModel() {
     $.getJSON(fsSearchUrl, function( data ) {
       venueId = data.response.venues[0].id;
       console.log(venueId);
+      $('#venueId').text(venueId);
       sequence = sequence.then(function() {
         return venueId;
       }).then(function(venueId) {
         console.log(venueId);
         var fsDetailsUrl = 'https://api.foursquare.com/v2/venues/' + venueId;
+        fsDetailsUrl += '?' + $.param({
+            'client_id': '0ZZXZ4MPQALNHP4SXKXUCQPTRBTIK1OBR2UC33RY25ROTTR5',
+            'client_secret': 'OIJ0QU0XYVL2HWYUJNUOJMDOFFCMCDO30YK5B10SE3KRAHGZ',
+            'v': '20170801'
+        });
         console.log(fsDetailsUrl);
+
+        $.getJSON(fsDetailsUrl, function( data ) {
+          rating = data.response.venue.rating;
+          $('#rating').text(rating);
+        })
+
+
       });
     }).fail(function(e){
         console.log('Failed to get Foursquare resources')
     });
-
-    // Closing div tag for the info window content
-    content += '</div>';
-
-    infoWindow.setOptions({
-      content: content
-    });
-
-    infoWindow.open(map, this);
   }
 
   self.initMap = function() {
