@@ -14,7 +14,7 @@ function AppViewModel() {
   var self = this;
   // infoWindow is declared here so that only 1 can be open at a time
   var infoWindow = new google.maps.InfoWindow();
-  self.searchInput = ko.observable("");
+  self.searchInput = ko.observable('');
 
   // Editable data
   self.surfSpots = [
@@ -28,7 +28,7 @@ function AppViewModel() {
 
   self.showItemInfo = function() {
     // Set initial state of content
-    content = '<div>';
+    var content = '<div>';
     content += '<h4>' + this.title + '</h4>';
 
     content += '<p>' + 'Surf Spot Details' + '</p>';
@@ -48,20 +48,20 @@ function AppViewModel() {
     // Map marker animations
     this.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout((function() {
-        this.setAnimation(null);
+      this.setAnimation(null);
     }).bind(this), 1400);
 
     // Foursquare API
     var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search';
 
     fsSearchUrl += '?' + $.param({
-        'query': this.title,
-        'll': this.position.lat() + ',' + this.position.lng(),
-        'intent': 'browse',
-        'client_id': '0ZZXZ4MPQALNHP4SXKXUCQPTRBTIK1OBR2UC33RY25ROTTR5',
-        'client_secret': 'OIJ0QU0XYVL2HWYUJNUOJMDOFFCMCDO30YK5B10SE3KRAHGZ',
-        'v': '20170801',
-        'radius': '500'
+      'query': this.title,
+      'll': this.position.lat() + ',' + this.position.lng(),
+      'intent': 'browse',
+      'client_id': 'UFJOFT13FTTMNL1FJIIWUJFOBHDGLFO1S51YZB4EQSNRCWHN',
+      'client_secret': 'EADFNHZU5O0S3CPDF3JUVFQX4LTG3NOWQ5RHFY1OD0RFOVGU',
+      'v': '20170801',
+      'radius': '500'
     });
 
     // Start off with a promise that always resolves
@@ -69,39 +69,38 @@ function AppViewModel() {
 
     // Promise used so that the 2nd api will not occur until the first is complete
     $.getJSON(fsSearchUrl, function( data ) {
-      venueId = data.response.venues[0].id;
+      var venueId = data.response.venues[0].id;
       sequence = sequence.then(function() {
         return venueId;
       }).then(function(venueId) {
         var fsDetailsUrl = 'https://api.foursquare.com/v2/venues/' + venueId;
         fsDetailsUrl += '?' + $.param({
-            'client_id': '0ZZXZ4MPQALNHP4SXKXUCQPTRBTIK1OBR2UC33RY25ROTTR5',
-            'client_secret': 'OIJ0QU0XYVL2HWYUJNUOJMDOFFCMCDO30YK5B10SE3KRAHGZ',
-            'v': '20170801'
+          'client_id': 'UFJOFT13FTTMNL1FJIIWUJFOBHDGLFO1S51YZB4EQSNRCWHN',
+          'client_secret': 'EADFNHZU5O0S3CPDF3JUVFQX4LTG3NOWQ5RHFY1OD0RFOVGU',
+          'v': '20170801'
         });
 
         $.getJSON(fsDetailsUrl, function( data ) {
-          venue = data.response.venue;
-          rating = venue.rating;
-          ratingSignals = venue.ratingSignals;
-          venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
+          var venue = data.response.venue;
+          var rating = venue.rating;
+          var ratingSignals = venue.ratingSignals;
+          var venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
           $('#featured-image').attr('src', venuePhotoUrl);
-
           $('#rating').text(rating + ' (' + ratingSignals + ' ratings)');
-        })
+        });
 
       });
-    }).fail(function(e){
-        alert('Failed to get Foursquare resources. Please check your connection and try again.');
+    }).fail(function(){
+      alert('Failed to get Foursquare resources. Please check your connection and try again.');
     });
 
     // Spitcast API
     var surfSearchUrl = 'http://api.spitcast.com/api/spot-forecast/search';
 
     surfSearchUrl += '?' + $.param({
-        'latitude': this.position.lat(),
-        'longitude': this.position.lng(),
-        'distance': '.6'
+      'latitude': this.position.lat(),
+      'longitude': this.position.lng(),
+      'distance': '.6'
     });
 
     $.getJSON(surfSearchUrl, function( data ) {
@@ -111,11 +110,10 @@ function AppViewModel() {
       var sizeMin = waveData.size_min.toFixed(2);
 
       $('#waveSize').text(size + 'ft (min: ' + sizeMin + 'ft max: ' + sizeMax + 'ft)');
-    }).fail(function(e){
-        alert('Failed to load SpitCast resources. Please check your connection and try again.');
+    }).fail(function(){
+      alert('Failed to load SpitCast resources. Please check your connection and try again.');
     });
-
-  }
+  };
 
   self.initMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -145,24 +143,24 @@ function AppViewModel() {
   // Appends the surf spots to the list
   // It also enables filtering of both the list and markers
   this.myLocationsFilter = ko.computed(function() {
-      var result = [];
-      for (var i = 0; i < markers.length; i++) {
-          var surfSpots = markers[i];
-          if (surfSpots.title.toLowerCase().includes(this.searchInput()
-                  .toLowerCase())) {
-              result.push(surfSpots);
-              markers[i].setVisible(true);
-          } else {
-              markers[i].setVisible(false);
-          }
+    var result = [];
+    for (var i = 0; i < markers.length; i++) {
+      var surfSpots = markers[i];
+      if (surfSpots.title.toLowerCase().includes(this.searchInput()
+          .toLowerCase())) {
+            result.push(surfSpots);
+            markers[i].setVisible(true);
+      } else {
+        markers[i].setVisible(false);
       }
-      return result;
+    }
+    return result;
   }, this);
 }
 
 // Error handlers
 function googleMapsError() {
-  alert("Google Maps could not be loaded. Please check your connection and try again.");
+  alert('Google Maps could not be loaded. Please check your connection and try again.');
 }
 
 // Function to enable initMap() to work with the Google Maps js callback
