@@ -51,7 +51,6 @@ html, body {
   margin-bottom: 30px;
 }
 
-.attribution img{
-  vertical-align: bottom;
-  border: 0;
+.attribution img {
+  margin-top: 10px;
 }
