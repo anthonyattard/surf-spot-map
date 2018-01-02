@@ -34,6 +34,7 @@ function AppViewModel() {
     content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
     content += '<p>' + 'Venue ID: ' + '<span id="venueId"></span</p>'
+    content += '<p>' + 'Wave Size: ' + '<span id="waveSize"></span></p>';
 
     // Closing div tag for the info window content
     content += '</div>';
@@ -45,7 +46,7 @@ function AppViewModel() {
     infoWindow.open(map, this);
 
     // Foursquare API
-    var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search'
+    var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search';
 
     fsSearchUrl += '?' + $.param({
         'query': this.title,
@@ -83,6 +84,26 @@ function AppViewModel() {
     }).fail(function(e){
         alert('Failed to get Foursquare resources. Please check your connection and try again.');
     });
+
+    var surfSearchUrl = 'http://api.spitcast.com/api/spot-forecast/search';
+
+    surfSearchUrl += '?' + $.param({
+        'latitude': this.position.lat(),
+        'longitude': this.position.lng(),
+        'distance': '.6'
+    });
+
+    $.getJSON(surfSearchUrl, function( data ) {
+      var waveData = data[0].average;
+      var size = waveData.size.toFixed(2);
+      var sizeMax = waveData.size_max.toFixed(2);
+      var sizeMin = waveData.size_min.toFixed(2);
+
+      $('#waveSize').text(size + 'ft (min: ' + sizeMin + 'ft max: ' + sizeMax + 'ft)');
+    }).fail(function(e){
+        alert('Failed to load SpitCast resources. Please check your connection and try again.');
+    });
+
   }
 
   self.initMap = function() {
