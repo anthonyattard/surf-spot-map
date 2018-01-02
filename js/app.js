@@ -80,8 +80,9 @@ function AppViewModel() {
         });
 
         $.getJSON(fsDetailsUrl, function( data ) {
-          rating = data.response.venue.rating;
-          ratingSignals = data.response.venue.ratingSignals;
+          venue = data.response.venue;
+          rating = venue.rating;
+          ratingSignals = venue.ratingSignals;
           $('#rating').text(rating + ' (' + ratingSignals + ' ratings)');
         })
 
