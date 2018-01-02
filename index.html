@@ -10,12 +10,18 @@
 <body>
   <div class="container-full">
     <div class="list-view">
-      <h1>Surf Spot Map</h1>
-      <input data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
-      <input type="button" value="Filter">
-      <ul class="item-list" data-bind="foreach: myLocationsFilter">
-        <li data-bind="text: title, click: $parent.showItemInfo"></li>
-      </ul>
+      <div class="row title">
+        <h1>Surf Spot Map</h1>
+      </div>
+      <div class="row">
+        <input class="input-text" data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
+        <input class="input-button" type="button" value="Filter">
+      </div>
+      <div class="row">
+        <ul class="item-list" data-bind="foreach: myLocationsFilter">
+          <li data-bind="text: title, click: $parent.showItemInfo"></li>
+        </ul>
+      </div>
     </div>
     <div id="map"></div>
   </div>

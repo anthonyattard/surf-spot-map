@@ -9,14 +9,14 @@ html, body {
   position: relative;
   padding-right: 15px;
   padding-left: 15px;
+  background-color: #1F2833;
 }
 
 .list-view {
   height: 100%;
-  line-height: 35px;
   padding: 10px 10px 30px 10px;
   text-align: left;
-  width: 340px;
+  width: 300px;
 }
 
 .item-list {
@@ -24,12 +24,29 @@ html, body {
   padding-left: 5px;
   font-size: 17px;
   padding-top: 9px;
+  line-height: 35px;
+  color: #C5C6C7;
 }
 
 #map {
   bottom:0px;
   height: 100%;
-  left: 362px;
+  left: 320px;
   position: absolute;
   right: 0px;
+}
+
+.input-text {
+  width: 70%;
+}
+
+.input-button {
+  width: 25%;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 7px;
+  color: #66FCF1;
+  margin-bottom: 30px;
 }
