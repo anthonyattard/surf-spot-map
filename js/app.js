@@ -28,11 +28,48 @@ function AppViewModel() {
 
   self.showItemInfo = function() {
     console.log(this.title);
+    // Set initial state of content
+    content = '<div>' +
+              '<h5>' + this.title + '</h5>';
+
+    content += '<p>' + 'Surf Spot Details' + '</p>';
+
+    // Foursquare API
+    var fsSearchUrl = 'https://api.foursquare.com/v2/venues/search'
+
+    fsSearchUrl += '?' + $.param({
+        'query': 'Tamarack',
+        'll': '33.149097,-117.348226',
+        'intent': 'browse',
+        'client_id': '0ZZXZ4MPQALNHP4SXKXUCQPTRBTIK1OBR2UC33RY25ROTTR5',
+        'client_secret': 'OIJ0QU0XYVL2HWYUJNUOJMDOFFCMCDO30YK5B10SE3KRAHGZ',
+        'v': '20170801',
+        'radius': '500'
+    });
+
+    // Start off with a promise that always resolves
+    var sequence = Promise.resolve();
+
+    // Promise used so that the 2nd api will not occur until the first is complete
+    $.getJSON(fsSearchUrl, function( data ) {
+      venueId = data.response.venues[0].id;
+      console.log(venueId);
+      sequence = sequence.then(function() {
+        return venueId;
+      }).then(function(venueId) {
+        console.log(venueId);
+        var fsDetailsUrl = 'https://api.foursquare.com/v2/venues/' + venueId;
+        console.log(fsDetailsUrl);
+      });
+    }).fail(function(e){
+        console.log('Failed to get Foursquare resources')
+    });
+
+    // Closing div tag for the info window content
+    content += '</div>';
 
     infoWindow.setOptions({
-      content: '<div>' +
-               '<h5>' + this.title + '</h5>' +
-               '</div>'
+      content: content
     });
 
     infoWindow.open(map, this);
