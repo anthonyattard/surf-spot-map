@@ -87,6 +87,8 @@ function AppViewModel() {
           var venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
           $('#featured-image').attr('src', venuePhotoUrl);
           $('#rating').text(rating + ' (' + ratingSignals + ' ratings)');
+        }).fail(function(){
+          alert('Failed to get Foursquare resources. Please check your connection and try again.');
         });
 
       });
