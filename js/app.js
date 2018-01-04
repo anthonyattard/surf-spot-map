@@ -32,7 +32,6 @@ function AppViewModel() {
     new SurfSpot('Oceanside Pier', {lat: 33.19338704616089, lng: -117.3871878580306}),
     new SurfSpot('Cassidy', {lat: 33.1727141797096, lng: -117.3666572301789}),
     new SurfSpot('Tamarack', {lat: 33.14732039517696, lng: -117.3467966641187}),
-    new SurfSpot('Warm Water Jetty', {lat: 33.1440071379831, lng: -117.344584923286}),
     new SurfSpot('Ponto', {lat: 33.08703466528135, lng: -117.314238172042}),
     new SurfSpot('Grandview', {lat: 33.07548446739567, lng: -117.310721142163}),
     new SurfSpot('Beacons', {lat: 33.06357021203468, lng: -117.3055500790094}),
