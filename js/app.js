@@ -96,6 +96,7 @@ function AppViewModel() {
           fsContent += '<h5>' + 'Rating: ' + rating + ' (' + ratingSignals + ' ratings)' + '</h5>';
           fsContent += '</div>';
           infoWindow.setContent(infoWindow.content + fsContent);
+          infoWindow.open(map, self.infoWindow);
 
         }).fail(function(){
           alert('Failed to get Foursquare resources. Please check your connection and try again.');
