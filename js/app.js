@@ -78,10 +78,10 @@ function AppViewModel() {
           var venue = data.response.venue;
           var rating = venue.rating;
           var ratingSignals = venue.ratingSignals;
-          var venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
+          // var venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
           var fsContent = '<div>';
           fsContent += '<h5>' + 'Rating: ' + rating + ' (' + ratingSignals + ' ratings)' + '</h5>';
-          fsContent += '<img src=' + venuePhotoUrl + '></img>';
+          // fsContent += '<img src=' + venuePhotoUrl + '></img>';
           fsContent += '</div>';
           infoWindow.setContent(infoWindow.content + fsContent);
 
