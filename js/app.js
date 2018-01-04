@@ -85,12 +85,12 @@ function AppViewModel() {
     });
 
     // Start off with a promise that always resolves
-    var sequence = Promise.resolve();
+    var fsSequence = Promise.resolve();
 
     // Promise used so that the 2nd api will not occur until the first is complete
     $.getJSON(fsSearchUrl, function( data ) {
       var venueId = data.response.venues[0].id;
-      sequence = sequence.then(function() {
+      fsSequence = fsSequence.then(function() {
         return venueId;
       }).then(function(venueId) {
         var fsDetailsUrl = 'https://api.foursquare.com/v2/venues/' + venueId;
