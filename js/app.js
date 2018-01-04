@@ -109,7 +109,7 @@ function AppViewModel() {
       var sizeMax = waveData.size_max.toFixed(2);
       var sizeMin = waveData.size_min.toFixed(2);
       var htmlContentSpitcast = '<div><h5>';
-      htmlContentSpitcast += 'Wave Size: ' + size + 'ft (min: ' + sizeMin + 'ft max: ' + sizeMax + 'ft)';
+      htmlContentSpitcast += 'Wave Size: ' + size + 'ft (' + sizeMin + 'ft-' + sizeMax + 'ft)';
       htmlContentSpitcast += '</h5></div>';
 
       infoWindow.setContent(infoWindow.content + htmlContentSpitcast);
