@@ -30,20 +30,14 @@ function AppViewModel() {
   self.surfSpots = [
     new SurfSpot('Oceanside Harbor', {lat: 33.20422852759, lng: -117.3959770213895}),
     new SurfSpot('Oceanside Pier', {lat: 33.19338704616089, lng: -117.3871878580306}),
-    new SurfSpot('Wisconsin', {lat: 33.18560497984529, lng: -117.37826775154}),
     new SurfSpot('Cassidy', {lat: 33.1727141797096, lng: -117.3666572301789}),
     new SurfSpot('Tamarack', {lat: 33.14732039517696, lng: -117.3467966641187}),
     new SurfSpot('Warm Water Jetty', {lat: 33.1440071379831, lng: -117.344584923286}),
-    new SurfSpot('Terra Mar', {lat: 33.1287625038052, lng: -117.3361948822189}),
-    new SurfSpot('Campground', {lat: 33.10077725856549, lng: -117.3199860617356}),
     new SurfSpot('Ponto', {lat: 33.08703466528135, lng: -117.314238172042}),
     new SurfSpot('Grandview', {lat: 33.07548446739567, lng: -117.310721142163}),
     new SurfSpot('Beacons', {lat: 33.06357021203468, lng: -117.3055500790094}),
-    new SurfSpot('D Street', {lat: 33.04544227410393, lng: -117.2982038691907}),
     new SurfSpot('Swamis', {lat: 33.03442293101347, lng: -117.2957502535422}),
-    new SurfSpot('Cardiff Reef', {lat: 33.01541991675105, lng: -117.283273919829}),
     new SurfSpot('15th Street - Del Mar', {lat: 32.95866232586716, lng: -117.2691753574579}),
-    new SurfSpot('Torrey Pines State Beach', {lat: 32.93310208353217, lng: -117.2617407404518}),
     new SurfSpot('Blacks Beach', {lat: 32.88872776198521, lng: -117.2574779327986}),
     new SurfSpot('Scripps Pier', {lat: 32.8665985093327, lng: -117.2562736520856}),
     new SurfSpot('Windansea', {lat: 32.82966532137208, lng: -117.2820435395789}),
@@ -52,7 +46,6 @@ function AppViewModel() {
     new SurfSpot('Pacific Beach', {lat: 32.79702950543552, lng: -117.2596029503458}),
     new SurfSpot('Mission Beach', {lat: 32.77792900748604, lng: -117.2543264821912}),
     new SurfSpot('Ocean Beach Pier', {lat: 32.74915185196409, lng: -117.2553418849109}),
-    new SurfSpot('Sunset Cliffs', {lat: 32.71899890471818, lng: -117.2571632713268}),
     new SurfSpot('Imperial Beach', {lat: 32.577928810608, lng: -117.1346007967761})
   ];
 
