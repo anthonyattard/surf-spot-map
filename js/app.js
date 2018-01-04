@@ -107,6 +107,7 @@ function AppViewModel() {
     });
 
     // Spitcast API
+    var surfSequence = Promise.resolve();
     var surfSearchUrl = 'http://api.spitcast.com/api/spot-forecast/search';
 
     surfSearchUrl += '?' + $.param({
@@ -120,13 +121,36 @@ function AppViewModel() {
       var size = waveData.size.toFixed(2);
       var sizeMax = waveData.size_max.toFixed(2);
       var sizeMin = waveData.size_min.toFixed(2);
+      var spotId = data[0].spot_id;
       var htmlContentSpitcast = '<div><h5>';
-      htmlContentSpitcast += 'Wave Size: ' + size + 'ft (' + sizeMin + 'ft-' + sizeMax + 'ft)';
+      htmlContentSpitcast += 'Size: ' + size + 'ft (' + sizeMin + 'ft-' + sizeMax + 'ft)';
       htmlContentSpitcast += '</h5></div>';
 
-      infoWindow.setContent(infoWindow.content + htmlContentSpitcast);
+      surfSequence = surfSequence.then(function() {
+          return spotId;
+        }).then(function(spotId) {
+          var surfSpotUrl = 'http://api.spitcast.com/api/spot/forecast/' + spotId + '/';
+
+          $.getJSON(surfSpotUrl, function( data ) {
+            var hour9 = data[9];
+            var shape_full = hour9.shape_full;
+            var swell = hour9.shape_detail.swell;
+            var tide = hour9.shape_detail.tide;
+            var wind = hour9.shape_detail.wind;
+
+            htmlContentSpitcast += '<div><h5>Shape: ' + shape_full + '</div></h5>';
+            htmlContentSpitcast += '<div><h5>Swell: ' + swell + '</div></h5>';
+            htmlContentSpitcast += '<div><h5>Tide: ' + tide + '</div></h5>';
+            htmlContentSpitcast += '<div><h5>Wind: ' + wind + '</div></h5>';
+
+            infoWindow.setContent(infoWindow.content + htmlContentSpitcast);
+          }).fail(function(){
+            alert('Failed to get Spitcast resources. Please check your connection and try again.');
+          });
+
+        });
     }).fail(function(){
-      alert('Failed to load SpitCast resources. Please check your connection and try again.');
+      alert('Failed to load Spitcast resources. Please check your connection and try again.');
     });
   };
 
