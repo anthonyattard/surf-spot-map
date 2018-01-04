@@ -30,7 +30,7 @@ function AppViewModel() {
     // Set initial state of content
     var content = '<div>';
     content += '<h4>' + this.title + '</h4>';
-    content += '<p>' + 'Surf Spot Details' + '</p>';
+    // content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '</div>';
 
     infoWindow.setOptions({
