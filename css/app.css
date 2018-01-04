@@ -17,6 +17,8 @@ html, body {
   padding: 10px 10px 30px 10px;
   text-align: left;
   width: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .item-list {
