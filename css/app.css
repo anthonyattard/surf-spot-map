@@ -40,6 +40,7 @@ html, body {
 
 .input-text {
   width: 70%;
+  padding-left: .5em;
 }
 
 .input-button {
