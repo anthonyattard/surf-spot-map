@@ -30,13 +30,7 @@ function AppViewModel() {
     // Set initial state of content
     var content = '<div>';
     content += '<h4>' + this.title + '</h4>';
-
     content += '<p>' + 'Surf Spot Details' + '</p>';
-    content += '<p>' + 'Rating: ' + '<span id="rating"></span></p>';
-    content += '<p>' + 'Wave Size: ' + '<span id="waveSize"></span></p>';
-    content += '<img id="featured-image" src=""</img>';
-
-    // Closing div tag for the info window content
     content += '</div>';
 
     infoWindow.setOptions({
@@ -85,8 +79,12 @@ function AppViewModel() {
           var rating = venue.rating;
           var ratingSignals = venue.ratingSignals;
           var venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
-          $('#featured-image').attr('src', venuePhotoUrl);
-          $('#rating').text(rating + ' (' + ratingSignals + ' ratings)');
+          var fsContent = '<div>';
+          fsContent += '<h5>' + 'Rating: ' + rating + ' (' + ratingSignals + ' ratings)' + '</h5>';
+          fsContent += '<img src=' + venuePhotoUrl + '></img>';
+          fsContent += '</div>';
+          infoWindow.setContent(infoWindow.content + fsContent);
+
         }).fail(function(){
           alert('Failed to get Foursquare resources. Please check your connection and try again.');
         });
@@ -110,8 +108,11 @@ function AppViewModel() {
       var size = waveData.size.toFixed(2);
       var sizeMax = waveData.size_max.toFixed(2);
       var sizeMin = waveData.size_min.toFixed(2);
+      var htmlContentSpitcast = '<div><h5>';
+      htmlContentSpitcast += 'Wave Size: ' + size + 'ft (min: ' + sizeMin + 'ft max: ' + sizeMax + 'ft)';
+      htmlContentSpitcast += '</h5></div>';
 
-      $('#waveSize').text(size + 'ft (min: ' + sizeMin + 'ft max: ' + sizeMax + 'ft)');
+      infoWindow.setContent(infoWindow.content + htmlContentSpitcast);
     }).fail(function(){
       alert('Failed to load SpitCast resources. Please check your connection and try again.');
     });
