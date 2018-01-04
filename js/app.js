@@ -16,17 +16,7 @@ function AppViewModel() {
   var infoWindow = new google.maps.InfoWindow();
   self.searchInput = ko.observable('');
 
-  // Editable data
-  // self.surfSpots = [
-  //   new SurfSpot('Scripps Pier', {lat: 32.865518, lng: -117.254822}),
-  //   new SurfSpot('Tourmaline', {lat: 32.805114, lng: -117.262321}),
-  //   new SurfSpot('Ocean Beach', {lat: 32.747533, lng: -117.253625}),
-  //   new SurfSpot('Mission Beach', {lat: 32.770224, lng: -117.252458}),
-  //   new SurfSpot('Tamarack', {lat: 33.149097, lng: -117.348226}),
-  //   new SurfSpot('Beacons', {lat: 33.065339, lng: -117.304691})
-  // ];
-
-
+  // Surf spot data
   self.surfSpots = [
     new SurfSpot('Oceanside Harbor', {lat: 33.20422852759, lng: -117.3959770213895}),
     new SurfSpot('Oceanside Pier', {lat: 33.19338704616089, lng: -117.3871878580306}),
@@ -55,7 +45,6 @@ function AppViewModel() {
     // Set initial state of content
     var content = '<div>';
     content += '<h4>' + this.title + '</h4>';
-    // content += '<p>' + 'Surf Spot Details' + '</p>';
     content += '</div>';
 
     infoWindow.setOptions({
@@ -103,10 +92,8 @@ function AppViewModel() {
           var venue = data.response.venue;
           var rating = venue.rating;
           var ratingSignals = venue.ratingSignals;
-          // var venuePhotoUrl = venue.bestPhoto.prefix + 'width200' + venue.bestPhoto.suffix;
           var fsContent = '<div>';
           fsContent += '<h5>' + 'Rating: ' + rating + ' (' + ratingSignals + ' ratings)' + '</h5>';
-          // fsContent += '<img src=' + venuePhotoUrl + '></img>';
           fsContent += '</div>';
           infoWindow.setContent(infoWindow.content + fsContent);
 
