@@ -10,21 +10,13 @@
 <body>
   <div class="container-full">
     <div class="list-view">
-      <div class="row title">
-        <h1>Surf Spot Map</h1>
-      </div>
-      <div class="row">
-        <input class="input-text" data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
-        <input class="input-button" type="button" value="Filter">
-      </div>
-      <div class="row">
-        <ul class="item-list" data-bind="foreach: myLocationsFilter">
-          <li data-bind="text: title, click: $parent.showItemInfo"></li>
-        </ul>
-      </div>
-      <div class="row attribution">
-        <img src="img/foursquare.png" class="img-responsive">
-      </div>
+      <h1 class="title">Surf Spot Map</h1>
+      <input class="input-text" data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
+      <input class="input-button" type="button" value="Filter">
+      <ul class="item-list" data-bind="foreach: myLocationsFilter">
+        <li data-bind="text: title, click: $parent.showItemInfo"></li>
+      </ul>
+      <img src="img/foursquare.png" class="img-responsive attribution">
     </div>
 
     <div id="map">
