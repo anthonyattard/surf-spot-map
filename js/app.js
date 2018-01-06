@@ -18,13 +18,13 @@ function AppViewModel() {
 
   // Surf spot data
   self.surfSpots = [
-    new SurfSpot('Oceanside Harbor', {lat: 33.20422852759, lng: -117.3959770213895}),
-    new SurfSpot('Oceanside Pier', {lat: 33.19338704616089, lng: -117.3871878580306}),
-    new SurfSpot('Cassidy', {lat: 33.1727141797096, lng: -117.3666572301789}),
-    new SurfSpot('Tamarack', {lat: 33.14732039517696, lng: -117.3467966641187}),
-    new SurfSpot('Ponto', {lat: 33.08703466528135, lng: -117.314238172042}),
-    new SurfSpot('Grandview', {lat: 33.07548446739567, lng: -117.310721142163}),
-    new SurfSpot('Beacons', {lat: 33.06357021203468, lng: -117.3055500790094}),
+    // new SurfSpot('Oceanside Harbor', {lat: 33.20422852759, lng: -117.3959770213895}),
+    // new SurfSpot('Oceanside Pier', {lat: 33.19338704616089, lng: -117.3871878580306}),
+    // new SurfSpot('Cassidy', {lat: 33.1727141797096, lng: -117.3666572301789}),
+    // new SurfSpot('Tamarack', {lat: 33.14732039517696, lng: -117.3467966641187}),
+    // new SurfSpot('Ponto', {lat: 33.08703466528135, lng: -117.314238172042}),
+    // new SurfSpot('Grandview', {lat: 33.07548446739567, lng: -117.310721142163}),
+    // new SurfSpot('Beacons', {lat: 33.06357021203468, lng: -117.3055500790094}),
     new SurfSpot('Swamis', {lat: 33.03442293101347, lng: -117.2957502535422}),
     new SurfSpot('15th Street - Del Mar', {lat: 32.95866232586716, lng: -117.2691753574579}),
     new SurfSpot('Blacks Beach', {lat: 32.88872776198521, lng: -117.2574779327986}),
