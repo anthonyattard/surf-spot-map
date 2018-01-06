@@ -139,10 +139,12 @@ function AppViewModel() {
             var tide = hour9.shape_detail.tide;
             var wind = hour9.shape_detail.wind;
 
-            htmlContentSpitcast += '<div><h5>Shape: ' + shape_full + '</div></h5>';
-            htmlContentSpitcast += '<div><h5>Swell: ' + swell + '</div></h5>';
-            htmlContentSpitcast += '<div><h5>Tide: ' + tide + '</div></h5>';
-            htmlContentSpitcast += '<div><h5>Wind: ' + wind + '</div></h5>';
+            htmlContentSpitcast += '<div>';
+            htmlContentSpitcast += '<h5>Shape: ' + shape_full + '</h5>';
+            htmlContentSpitcast += '<h5>Swell: ' + swell + '</h5>';
+            htmlContentSpitcast += '<h5>Tide: ' + tide + '</h5>';
+            htmlContentSpitcast += '<h5>Wind: ' + wind + '</h5>';
+            htmlContentSpitcast += '</div>';
 
             infoWindow.setContent(infoWindow.content + htmlContentSpitcast);
           }).fail(function(){
