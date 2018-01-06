@@ -31,11 +31,20 @@
 }*/
 
 #map {
+  top: 70px;
   bottom:0px;
   height: 100%;
-  left: 320px;
+  left: 0px;
   position: absolute;
   right: 0px;
+}
+
+#map.toggled {
+  left: 250px;
+}
+
+#wrapper {
+  background-color: #212529;
 }
 
 /*.input-text {
