@@ -44,7 +44,7 @@ function AppViewModel() {
   self.showItemInfo = function() {
     // Set initial state of content
     var content = '<div>';
-    content += '<h4>' + this.title + '</h4>';
+    content += '<h5>' + this.title + '</h5>';
     content += '</div>';
 
     infoWindow.setOptions({
@@ -93,7 +93,7 @@ function AppViewModel() {
           var rating = venue.rating;
           var ratingSignals = venue.ratingSignals;
           var fsContent = '<div>';
-          fsContent += '<h5>' + 'Rating: ' + rating + ' (' + ratingSignals + ' ratings)' + '</h5>';
+          fsContent += '<h6>' + 'Rating: ' + rating + ' (' + ratingSignals + ' ratings)' + '</h6>';
           fsContent += '</div>';
           infoWindow.setContent(infoWindow.content + fsContent);
           infoWindow.open(map, self.infoWindow);
@@ -123,9 +123,9 @@ function AppViewModel() {
       var sizeMax = waveData.size_max.toFixed(2);
       var sizeMin = waveData.size_min.toFixed(2);
       var spotId = data[0].spot_id;
-      var htmlContentSpitcast = '<div><h5>';
+      var htmlContentSpitcast = '<div><h6>';
       htmlContentSpitcast += 'Size: ' + size + 'ft (' + sizeMin + 'ft-' + sizeMax + 'ft)';
-      htmlContentSpitcast += '</h5></div>';
+      htmlContentSpitcast += '</h6></div>';
 
       surfSequence = surfSequence.then(function() {
           return spotId;
@@ -140,10 +140,10 @@ function AppViewModel() {
             var wind = hour9.shape_detail.wind;
 
             htmlContentSpitcast += '<div>';
-            htmlContentSpitcast += '<h5>Shape: ' + shape_full + '</h5>';
-            htmlContentSpitcast += '<h5>Swell: ' + swell + '</h5>';
-            htmlContentSpitcast += '<h5>Tide: ' + tide + '</h5>';
-            htmlContentSpitcast += '<h5>Wind: ' + wind + '</h5>';
+            htmlContentSpitcast += '<h6>Shape: ' + shape_full + '</h6>';
+            htmlContentSpitcast += '<h6>Swell: ' + swell + '</h6>';
+            htmlContentSpitcast += '<h6>Tide: ' + tide + '</h6>';
+            htmlContentSpitcast += '<h6>Wind: ' + wind + '</h6>';
             htmlContentSpitcast += '</div>';
 
             infoWindow.setContent(infoWindow.content + htmlContentSpitcast);
