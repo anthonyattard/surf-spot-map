@@ -31,7 +31,7 @@
 }*/
 
 #map {
-  top: 70px;
+  top: 41px;
   bottom:0px;
   height: 100%;
   left: 0px;
@@ -45,6 +45,10 @@
 
 #wrapper {
   background-color: #212529;
+}
+
+#page-content-wrapper {
+  padding: 5px;
 }
 
 /*.input-text {
