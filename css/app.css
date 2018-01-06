@@ -1,18 +1,18 @@
-html, body {
+/*html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+}*/
 
-.container-full {
+/*.container-full {
   height: 100%;
   position: relative;
   padding-right: 15px;
   padding-left: 15px;
   background-color: #1F2833;
-}
+}*/
 
-.list-view {
+/*.list-view {
   height: 100%;
   padding: 10px 10px 30px 10px;
   text-align: left;
@@ -28,7 +28,7 @@ html, body {
   padding-top: 9px;
   line-height: 35px;
   color: #C5C6C7;
-}
+}*/
 
 #map {
   bottom:0px;
@@ -38,7 +38,7 @@ html, body {
   right: 0px;
 }
 
-.input-text {
+/*.input-text {
   width: 70%;
   padding-left: .5em;
 }
@@ -55,4 +55,4 @@ html, body {
 
 .attribution img {
   margin-top: 10px;
-}
+}*/
