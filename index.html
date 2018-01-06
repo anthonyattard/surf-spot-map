@@ -27,9 +27,16 @@
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
           <a href="#">
-              Start Bootstrap
+              Surf Spot Map
           </a>
         </li>
+        <li>
+          <input class="input-text" data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
+          <input class="input-button" type="button" value="Filter">
+        </li>
+        <!-- ko foreach: myLocationsFilter -->
+        <li data-bind="text: title, click: $parent.showItemInfo"></li>
+        <!-- /ko -->
         <li>
           <a href="#">Dashboard</a>
         </li>
@@ -54,6 +61,8 @@
   </div>
   <!-- /#wrapper -->
 
+  <div id="map">
+  </div>
 
 
 
@@ -73,8 +82,7 @@
       <img src="img/foursquare.png" class="img-responsive attribution">
     </div>
 
-    <div id="map">
-    </div>
+
   </div> -->
 
 
