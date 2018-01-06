@@ -167,8 +167,8 @@ function AppViewModel() {
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < self.surfSpots.length; i++) {
       var marker = new google.maps.Marker({
-        position: self.surfSpots[i]['location'],
-        title: self.surfSpots[i]['title'],
+        position: self.surfSpots[i].location,
+        title: self.surfSpots[i].title,
         animation: google.maps.Animation.DROP,
         id: i
       });
