@@ -109,7 +109,7 @@ function AppViewModel() {
 
     // Spitcast API
     var surfSequence = Promise.resolve();
-    var surfSearchUrl = 'https://api.spitcast.com/api/spot-forecast/search';
+    var surfSearchUrl = 'http://api.spitcast.com/api/spot-forecast/search';
 
     surfSearchUrl += '?' + $.param({
       'latitude': this.position.lat(),
@@ -130,7 +130,7 @@ function AppViewModel() {
       surfSequence = surfSequence.then(function() {
           return spotId;
         }).then(function(spotId) {
-          var surfSpotUrl = 'https://api.spitcast.com/api/spot/forecast/' + spotId + '/';
+          var surfSpotUrl = 'http://api.spitcast.com/api/spot/forecast/' + spotId + '/';
 
           $.getJSON(surfSpotUrl, function( data ) {
             var hour9 = data[9];
