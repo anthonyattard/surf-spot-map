@@ -15,6 +15,10 @@
   background-color: #212529;
 }
 
+#sidebar-wrapper {
+  overflow-x: hidden;
+}
+
 #page-content-wrapper {
   padding: 5px;
 }
