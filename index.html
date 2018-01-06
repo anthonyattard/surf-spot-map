@@ -30,19 +30,15 @@
               Surf Spot Map
           </a>
         </li>
-        <li>
+        <p>
           <input class="input-text" data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
           <input class="input-button" type="button" value="Filter">
-        </li>
+        </p>
         <!-- ko foreach: myLocationsFilter -->
-        <li data-bind="text: title, click: $parent.showItemInfo"></li>
+        <li>
+          <a href= "#" data-bind="text: title, click: $parent.showItemInfo"></a>
+        </li>
         <!-- /ko -->
-        <li>
-          <a href="#">Dashboard</a>
-        </li>
-        <li>
-          <a href="#">Shortcuts</a>
-        </li>
       </ul>
     </div>
     <!-- /#sidebar-wrapper -->
