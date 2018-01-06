@@ -1,3 +1,24 @@
+#map {
+  top: 41px;
+  bottom:0px;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+#map.toggled {
+  left: 250px;
+}
+
+#wrapper {
+  background-color: #212529;
+}
+
+#page-content-wrapper {
+  padding: 5px;
+}
+
 /*html, body {
   height: 100%;
   margin: 0;
@@ -29,27 +50,6 @@
   line-height: 35px;
   color: #C5C6C7;
 }*/
-
-#map {
-  top: 41px;
-  bottom:0px;
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-}
-
-#map.toggled {
-  left: 250px;
-}
-
-#wrapper {
-  background-color: #212529;
-}
-
-#page-content-wrapper {
-  padding: 5px;
-}
 
 /*.input-text {
   width: 70%;
