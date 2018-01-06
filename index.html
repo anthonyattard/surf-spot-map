@@ -20,7 +20,49 @@
 
 </head>
 <body>
-  <div class="container-full">
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a href="#">
+              Start Bootstrap
+          </a>
+        </li>
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="#">Shortcuts</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <h1>Simple Sidebar</h1>
+        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+
+
+
+
+
+
+
+
+<!--   <div class="container-full">
     <div class="list-view">
       <h1 class="title">Surf Spot Map</h1>
       <input class="input-text" data-bind="textInput: searchInput" type="text" placeholder="Surf spot">
@@ -33,7 +75,10 @@
 
     <div id="map">
     </div>
-  </div>
+  </div> -->
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -42,6 +87,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
   <script src="js/libs/knockout.js"></script>
   <script src="js/app.js"></script>
+
+
+  <!-- Menu Toggle Script -->
+  <script>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+  </script>
+
+
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyHSDq3CI_hgyFcHGSX4fEIAG7aLfTnoo&callback=initApp"
     onerror="googleMapsError()">
