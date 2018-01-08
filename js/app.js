@@ -38,8 +38,11 @@ function AppViewModel() {
     new SurfSpot('Imperial Beach', {lat: 32.577928810608, lng: -117.1346007967761})
   ];
 
-
-
+  // Main viewmodel Functions
+  self.toggleMenu = function() {
+    $("#wrapper").toggleClass("toggled");
+    $("#map").toggleClass("toggled");
+  }
 
   self.showItemInfo = function() {
     // Set initial state of content
