@@ -4,7 +4,9 @@ Get surf information from the top surf spots in San Diego on an interactive map.
 
 ## Getting Started
 
-Either clone the repo or download the zip file. Navigate to the directory and open index.html in your browser of choice.
+* Clone the repo or download the zip file. 
+* Navigate to the directory and open index.html in your browser of choice.
+* Or view it live at [http://surf-spot-map.anthonyattard.com](http://surf-spot-map.anthonyattard.com)
 
 ## Deployment
 
