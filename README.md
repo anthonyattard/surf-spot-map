@@ -8,10 +8,6 @@ Get surf information from the top surf spots in San Diego on an interactive map.
 * Navigate to the directory and open index.html in your browser of choice.
 * Or view it live at [http://surf-spot-map.anthonyattard.com](http://surf-spot-map.anthonyattard.com)
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [KnockoutJS](http://knockoutjs.com/) - The javascript library used
