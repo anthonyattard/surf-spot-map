@@ -1,6 +1,6 @@
 # Surf Spot Map
 
-Get surf information from the top surf spots in San Diego on an interactive map.
+Get accurate surf information from the top surf spots in San Diego on an interactive map.
 
 ## Getting Started
 
