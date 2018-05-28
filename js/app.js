@@ -112,12 +112,13 @@ function AppViewModel() {
 
     // Spitcast API
     var surfSequence = Promise.resolve();
-    var surfSearchUrl = 'http://api.spitcast.com/api/spot-forecast/search';
+    var surfSearchUrl = 'https://api.anthonyattard.com/surf/forecast/summary';
+
 
     surfSearchUrl += '?' + $.param({
-      'latitude': this.position.lat(),
-      'longitude': this.position.lng(),
-      'distance': '.6'
+      'lat': this.position.lat(),
+      'long': this.position.lng(),
+      'dist': '.6'
     });
 
     $.getJSON(surfSearchUrl, function( data ) {
@@ -133,7 +134,11 @@ function AppViewModel() {
       surfSequence = surfSequence.then(function() {
           return spotId;
         }).then(function(spotId) {
-          var surfSpotUrl = 'http://api.spitcast.com/api/spot/forecast/' + spotId + '/';
+          var surfSpotUrl = 'https://api.anthonyattard.com/surf/forecast/detailed';
+
+          surfSpotUrl += '?' + $.param({
+            'id': spotId
+          });
 
           $.getJSON(surfSpotUrl, function( data ) {
             var hour9 = data[9];
