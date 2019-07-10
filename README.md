@@ -6,7 +6,7 @@ Get accurate surf information from the top surf spots in San Diego on an interac
 
 * Clone the repo or download the zip file. 
 * Navigate to the directory and open index.html in your browser of choice.
-* Or view it live at [http://surf-spot-map.anthonyattard.com](http://surf-spot-map.anthonyattard.com)
+* Or view it live at [https://surf.anthonyattard.com](https://surf.anthonyattard.com)
 
 ## Built With
 
