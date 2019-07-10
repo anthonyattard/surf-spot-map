@@ -2,6 +2,8 @@
 
 Get accurate surf information from the top surf spots in San Diego on an interactive map.
 
+![Surf Spot Map](img/surf-spot-map.png)
+
 ## Getting Started
 
 * Clone the repo or download the zip file. 
